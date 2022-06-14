@@ -2,7 +2,7 @@
 Console.WriteLine("Bienvenidos a ...");
 Console.WriteLine("Ingrese la cantidad de luchadores que batallaran en esta arena mortal");
 int cantidad = Convert.ToInt32(Console.ReadLine());
-for (int i = 0; i < cantidad; i++)
+for (int z = 0; z < cantidad; z++)
 {
     datos dato = new datos();
     caracteristicas caract = new caracteristicas();
@@ -14,11 +14,11 @@ Console.WriteLine("Datos de los personajes creados: ");
 int j = 1;
 foreach (personajes jugador in jugadores)
 {
-    Console.WriteLine($"PELADOR {j}");
+    Console.WriteLine($"PELEADOR {j}");
     Console.WriteLine($"Nombre del jugador: {jugador.Datos.Nombre}");
     Console.WriteLine($"Apodo: {jugador.Datos.Apodo}");
     Console.WriteLine($"Tipo: {jugador.Datos.Tipo}");
-    Console.WriteLine($"Fecha de Nacimiento: {jugador.Datos.FechaNac}");
+    Console.WriteLine($"Fecha de Nacimiento: {jugador.Datos.FechaNac.ToShortDateString()}");
     Console.WriteLine($"Edad: {jugador.Datos.Edad}");
     Console.WriteLine($"Salud: {jugador.Datos.Salud}");
     Console.WriteLine("\n\n");
@@ -36,6 +36,53 @@ jugadores.RemoveAt(eleccion - 1);
 Console.WriteLine($"El personaje elegido es: {principal.Datos.Nombre}");
 Console.WriteLine("Buena suerte en tu aventura junto a tu luchador");
 
-var batalla = new pelea();
+j = 0;
+int numPelea = 1;
+int cantRondas = 0;
+bool victoria = false;
 
-principal.Datos.Salud = batalla.ronda(jugadores[0], principal);
+    while (numPelea < cantidad - 1 && principal.Datos.Salud > 0)
+    {
+        if (principal.Datos.Salud > 0)
+        {
+            Console.WriteLine($"PELEA NUMERO {numPelea}\n\n");
+            while (principal.Datos.Salud > 0 && cantRondas < 3)
+            {
+                var batalla = new pelea();
+                jugadores[j].Datos.Salud = batalla.ronda(principal, jugadores[j]);
+                if (jugadores[j].Datos.Salud <= 0)
+                {
+                    Console.WriteLine($"Tu luchador ha ganado la pelea!!");
+                    jugadores.RemoveAt(j);
+                    victoria = true;
+                    cantRondas = 3;
+                }
+
+                if (!victoria)
+                {
+                    principal.Datos.Salud = batalla.ronda(jugadores[j], principal);
+
+                    if (principal.Datos.Salud <= 0)
+                    {
+                        Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} fue derrotado!");
+                        Console.WriteLine($"Mayor suerte la proxima!");
+                        cantRondas = 3;
+                    }
+                    cantRondas++;
+                }
+            }
+        }
+        if ((principal.Datos.Salud < jugadores[j].Datos.Salud) && principal.Datos.Salud > 0)
+        {
+            Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} fue derrotado!");
+            Console.WriteLine($"Mayor suerte la proxima!");
+        }else if ((principal.Datos.Salud > jugadores[j].Datos.Salud) && jugadores[j].Datos.Salud > 0)
+        {
+        Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} ha ganado la pelea!!");
+            jugadores.RemoveAt(j);
+            cantRondas = 0;
+        }
+        numPelea++;
+        cantRondas = 0;
+        victoria = false;
+    }

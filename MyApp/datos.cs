@@ -23,11 +23,7 @@ public class datos
         get => apodo;
         set => apodo = value;
     }
-    public string FechaNac
-    {
-        get => fechaNac;
-        set => fechaNac = value;
-    }
+    public DateTime FechaNac {get; set;}
     public int Edad
     {
         get => edad;
@@ -38,20 +34,32 @@ public class datos
         get => salud;
         set => salud = value;
     }
-
     public datos()
     {
         Random rnd = new Random();
         string[] tipos = new string[]{"Templario", "Hechicero", "Guarda Bosques", "Necromancer", "NightBlade"};
         string[] nombres = new string[]{"Agni", "Alfio", "Runar", "Vikram", "Werner", "Yannick", "Baco", "Brais", "Samay"};
         string[] apodos = new string[]{"Torcuato", "Paton", "Gervasio", "Narigon", "Fafa", "Retruco"};
-        string[] fechas = new string[]{"24/06/2002", "02/02/1790", "18/05/1995", "04/11/2001", "13/07/1934", "29/06/1986"};
         Tipo = tipos[rnd.Next(0,5)];
         Nombre = nombres[rnd.Next(0,8)];
         Apodo = apodos[rnd.Next(0,6)];
-        FechaNac = fechas[rnd.Next(0,6)];
-        string[] fecha = FechaNac.Split("/");
-        edad = 2022 - Convert.ToInt32(fecha[2]);
-        Salud = 100;
+        FechaNac = RandomDay();
+        edad = calcularEdad(FechaNac);
+        Salud = 3000;
+    }
+
+    DateTime fechaActual = DateTime.Today;
+    public int calcularEdad(DateTime FechaNacimiento){
+        edad = fechaActual.Year - FechaNacimiento.Year;
+        if(FechaNacimiento.Month > fechaActual.Month){
+            edad = edad-1;
+        }
+        return edad;
+    }
+    public DateTime RandomDay() {
+        DateTime start = new DateTime(1722, 1, 1); 
+        Random gen = new Random(); 
+        int range = (DateTime.Today - start).Days; 
+        return start.AddDays(gen.Next(range)); 
     }
 }
