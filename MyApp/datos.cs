@@ -43,16 +43,15 @@ public class datos
     {
         Random rnd = new Random();
         string[] tipos = new string[]{"Templario", "Hechicero", "Guarda Bosques", "Necromancer", "NightBlade"};
-        string[] nombres = new string[]{"Agni", "Alfio", "Runar", "Vikram", "Werner", "Yannick"};
+        string[] nombres = new string[]{"Agni", "Alfio", "Runar", "Vikram", "Werner", "Yannick", "Baco", "Brais", "Samay"};
         string[] apodos = new string[]{"Torcuato", "Paton", "Gervasio", "Narigon", "Fafa", "Retruco"};
         string[] fechas = new string[]{"24/06/2002", "02/02/1790", "18/05/1995", "04/11/2001", "13/07/1934", "29/06/1986"};
         Tipo = tipos[rnd.Next(0,5)];
-        Nombre = nombres[rnd.Next(0,5)];
+        Nombre = nombres[rnd.Next(0,8)];
         Apodo = apodos[rnd.Next(0,6)];
         FechaNac = fechas[rnd.Next(0,6)];
         string[] fecha = FechaNac.Split("/");
         edad = 2022 - Convert.ToInt32(fecha[2]);
         Salud = 100;
     }
-
 }
