@@ -8,7 +8,7 @@ public class pelea
         efectividad = rnd.Next(1, 100);
         valorAtaque = disparo * efectividad;
         defensa = defensor.Caract.Armadura * defensor.Caract.Velocidad;
-        maxDamage = 5000;
+        maxDamage = 20000;
         damage = ((valorAtaque * efectividad - defensa) / maxDamage) * 100;
         defensor.Datos.Salud -= damage;
         Console.WriteLine($"El luchador {atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre}");

@@ -2,6 +2,11 @@
 Console.WriteLine("Bienvenidos a ...");
 Console.WriteLine("Ingrese la cantidad de luchadores que batallaran en esta arena mortal");
 int cantidad = Convert.ToInt32(Console.ReadLine());
+while (cantidad <= 1)
+{
+    Console.WriteLine("Elige un numero mayor que 1");
+    cantidad = Convert.ToInt32(Console.ReadLine());
+}
 for (int z = 0; z < cantidad; z++)
 {
     datos dato = new datos();
@@ -72,10 +77,11 @@ bool victoria = false;
                 }
             }
         }
-        if ((principal.Datos.Salud < jugadores[j].Datos.Salud) && principal.Datos.Salud > 0)
+        if ((principal.Datos.Salud < jugadores[j].Datos.Salud) && principal.Datos.Salud > 0 && jugadores[j].Datos.Salud != 3000)
         {
             Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} fue derrotado!");
             Console.WriteLine($"Mayor suerte la proxima!");
+            principal.Datos.Salud = -10;
         }else if ((principal.Datos.Salud > jugadores[j].Datos.Salud) && jugadores[j].Datos.Salud > 0)
         {
         Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} ha ganado la pelea!!");
@@ -86,3 +92,11 @@ bool victoria = false;
         cantRondas = 0;
         victoria = false;
     }
+
+if (jugadores.Count == 0)
+{
+    Console.WriteLine("TU JUGADOR ES EL CAMPEON!!! FELICIDADES");
+}else
+{
+    Console.WriteLine("Buen intento! Tu luchador perdio pero puedes jugar otra vez!!");
+}
