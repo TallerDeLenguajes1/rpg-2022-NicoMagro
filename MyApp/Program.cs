@@ -41,31 +41,30 @@ jugadores.RemoveAt(eleccion - 1);
 Console.WriteLine($"El personaje elegido es: {principal.Datos.Nombre}");
 Console.WriteLine("Buena suerte en tu aventura junto a tu luchador");
 
-j = 0;
 int numPelea = 1;
 int cantRondas = 0;
 bool victoria = false;
 
-    while (numPelea < cantidad - 1 && principal.Datos.Salud > 0)
+    while (jugadores.Count != 0 && principal.Datos.Salud > 0)
     {
-        if (principal.Datos.Salud > 0)
-        {
-            Console.WriteLine($"PELEA NUMERO {numPelea}\n\n");
+            Console.WriteLine($"\n\nPELEA NUMERO {numPelea}\n\n");
             while (principal.Datos.Salud > 0 && cantRondas < 3)
             {
                 var batalla = new pelea();
-                jugadores[j].Datos.Salud = batalla.ronda(principal, jugadores[j]);
-                if (jugadores[j].Datos.Salud <= 0)
+                jugadores[0].Datos.Salud = batalla.ronda(principal, jugadores[0]);
+                if (jugadores[0].Datos.Salud <= 0)
                 {
                     Console.WriteLine($"Tu luchador ha ganado la pelea!!");
-                    jugadores.RemoveAt(j);
+                    jugadores.RemoveAt(0);
                     victoria = true;
                     cantRondas = 3;
+                    principal = subirEstadisticas(principal);
+                    Console.WriteLine("Se le subieron las estadisticas a tu luchador");
                 }
 
                 if (!victoria)
                 {
-                    principal.Datos.Salud = batalla.ronda(jugadores[j], principal);
+                    principal.Datos.Salud = batalla.ronda(jugadores[0], principal);
 
                     if (principal.Datos.Salud <= 0)
                     {
@@ -76,17 +75,18 @@ bool victoria = false;
                     cantRondas++;
                 }
             }
-        }
-        if ((principal.Datos.Salud < jugadores[j].Datos.Salud) && principal.Datos.Salud > 0 && jugadores[j].Datos.Salud != 3000)
+        if (jugadores.Count != 0 && (principal.Datos.Salud < jugadores[0].Datos.Salud) && principal.Datos.Salud > 0 && jugadores[0].Datos.Salud != 3000 && cantRondas == 3)
         {
             Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} fue derrotado!");
             Console.WriteLine($"Mayor suerte la proxima!");
             principal.Datos.Salud = -10;
-        }else if ((principal.Datos.Salud > jugadores[j].Datos.Salud) && jugadores[j].Datos.Salud > 0)
+        }else if (jugadores.Count != 0 && (principal.Datos.Salud > jugadores[0].Datos.Salud) && jugadores[0].Datos.Salud > 0 && cantRondas == 3)
         {
         Console.WriteLine($"\n\nTu luchador {principal.Datos.Nombre} ha ganado la pelea!!");
-            jugadores.RemoveAt(j);
+            jugadores.RemoveAt(0);
             cantRondas = 0;
+            principal = subirEstadisticas(principal);
+            Console.WriteLine("Se le subieron las estadisticas a tu luchador");
         }
         numPelea++;
         cantRondas = 0;
@@ -99,4 +99,15 @@ if (jugadores.Count == 0)
 }else
 {
     Console.WriteLine("Buen intento! Tu luchador perdio pero puedes jugar otra vez!!");
+}
+
+
+
+personajes subirEstadisticas(personajes luchador)
+{
+    luchador.Datos.Salud += 300;
+    luchador.Caract.Fuerza += 2;
+    luchador.Caract.Destreza += 1;
+
+    return luchador;
 }
