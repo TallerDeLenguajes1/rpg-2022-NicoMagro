@@ -1,4 +1,8 @@
-﻿List<personajes> jugadores = new List<personajes>();
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Net;
+
+List<personajes> jugadores = new List<personajes>();
 List<personajes> ganadores = new List<personajes>();
 double score = 0;
 Console.WriteLine("Bienvenidos a ...");
@@ -118,7 +122,8 @@ escribirGanadores(ganadores, ruta, score);
 
 leerGanadores(ruta);
 
-
+string jsonString = JsonSerializer.Serialize(jugadores);
+Console.WriteLine(jsonString);
 
 
 

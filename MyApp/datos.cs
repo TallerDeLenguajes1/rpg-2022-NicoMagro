@@ -1,3 +1,6 @@
+using System.Net;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 public class datos
 {
     private string tipo;
@@ -37,15 +40,37 @@ public class datos
     public datos()
     {
         Random rnd = new Random();
-        string[] tipos = new string[]{"Templario", "Hechicero", "Guarda Bosques", "Necromancer", "NightBlade"};
-        string[] nombres = new string[]{"Agni", "Alfio", "Runar", "Vikram", "Werner", "Yannick", "Baco", "Brais", "Samay"};
-        string[] apodos = new string[]{"Torcuato", "Paton", "Gervasio", "Narigon", "Fafa", "Retruco"};
-        Tipo = tipos[rnd.Next(0,5)];
-        Nombre = nombres[rnd.Next(0,8)];
-        Apodo = apodos[rnd.Next(0,6)];
-        FechaNac = RandomDay();
-        edad = calcularEdad(FechaNac);
-        Salud = 3000;
+        var url = $"https://api.disneyapi.dev/characters";
+        var request = (HttpWebRequest)WebRequest.Create(url);
+        request.Method = "GET";
+        request.ContentType = "application/json";
+        request.Accept = "application/json";
+
+        using (WebResponse response = request.GetResponse())
+        {
+            using (Stream strReader = response.GetResponseStream())
+            {
+                if (strReader == null) return;
+                using (StreamReader objReader = new StreamReader(strReader))
+                {
+                    string responseBody = objReader.ReadToEnd();
+                    rere disney = JsonSerializer.Deserialize<rere>(responseBody);
+                    List<string> nombres = new List<string>();
+                    foreach (var item in disney.data)
+                    {
+                        nombres.Add(item.name);
+                    }
+                    Nombre = nombres[rnd.Next(0,50)];
+                }
+            }
+        } 
+            string[] tipos = new string[]{"Templario", "Hechicero", "Guarda Bosques", "Necromancer", "NightBlade"};
+            string[] apodos = new string[]{"Torcuato", "Paton", "Gervasio", "Narigon", "Fafa", "Retruco"};
+            Tipo = tipos[rnd.Next(0,5)];
+            Apodo = apodos[rnd.Next(0,6)];
+            FechaNac = RandomDay();
+            edad = calcularEdad(FechaNac);
+            Salud = 3000;
     }
 
     DateTime fechaActual = DateTime.Today;
