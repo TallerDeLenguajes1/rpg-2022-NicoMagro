@@ -60,7 +60,9 @@ public class datos
                     {
                         nombres.Add(item.name);
                     }
-                    Nombre = nombres[rnd.Next(0,50)];
+                    int random = rnd.Next(0,50);
+                    Nombre = nombres[random];
+                    nombres.RemoveAt(random);
                 }
             }
         } 
