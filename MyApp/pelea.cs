@@ -13,7 +13,7 @@ public class pelea
         defensor.Datos.Salud -= damage;
         Console.WriteLine($"El luchador {atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre}");
         Console.WriteLine($"Danio provocado: {damage}");
-        Console.WriteLine($"Salud restante de {defensor.Datos.Nombre}: {defensor.Datos.Salud}");
+        Console.WriteLine($"Salud restante de {defensor.Datos.Nombre}: {defensor.Datos.Salud}\n");
 
         return defensor.Datos.Salud;
     }

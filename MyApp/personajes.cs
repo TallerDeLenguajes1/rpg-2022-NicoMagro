@@ -20,4 +20,8 @@ public class personajes
         Datos = dat;
         Caract = carac;
     }
+    public personajes()
+    {
+        
+    }
 }

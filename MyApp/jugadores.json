@@ -1,138 +1,138 @@
 [
   {
     "Datos": {
-      "Tipo": "Hechicero",
-      "Nombre": "Addison",
-      "Apodo": "Narigon",
-      "FechaNac": "1950-09-16T00:00:00",
-      "Edad": 71,
-      "Salud": 3000
-    },
-    "Caract": {
-      "Velocidad": 4,
-      "Destreza": 4,
-      "Fuerza": 1,
-      "Nivel": 9,
-      "Armadura": 9
-    }
-  },
-  {
-    "Datos": {
-      "Tipo": "Templario",
-      "Nombre": "9-Eye",
-      "Apodo": "Fafa",
-      "FechaNac": "1897-01-21T00:00:00",
-      "Edad": 125,
-      "Salud": 3000
-    },
-    "Caract": {
-      "Velocidad": 6,
-      "Destreza": 2,
-      "Fuerza": 3,
-      "Nivel": 3,
-      "Armadura": 8
-    }
-  },
-  {
-    "Datos": {
       "Tipo": "NightBlade",
-      "Nombre": "Absolem",
-      "Apodo": "Narigon",
-      "FechaNac": "1935-04-26T00:00:00",
-      "Edad": 87,
-      "Salud": 3000
-    },
-    "Caract": {
-      "Velocidad": 8,
-      "Destreza": 4,
-      "Fuerza": 9,
-      "Nivel": 5,
-      "Armadura": 5
-    }
-  },
-  {
-    "Datos": {
-      "Tipo": "Necromancer",
-      "Nombre": "Abu",
-      "Apodo": "Retruco",
-      "FechaNac": "1896-05-20T00:00:00",
-      "Edad": 126,
-      "Salud": 3000
-    },
-    "Caract": {
-      "Velocidad": 3,
-      "Destreza": 2,
-      "Fuerza": 9,
-      "Nivel": 6,
-      "Armadura": 7
-    }
-  },
-  {
-    "Datos": {
-      "Tipo": "Hechicero",
-      "Nombre": "627",
+      "Nombre": "Admirals Watson and Crick",
       "Apodo": "Gervasio",
-      "FechaNac": "1742-08-20T00:00:00",
-      "Edad": 279,
+      "FechaNac": "1834-04-29T00:00:00",
+      "Edad": 188,
       "Salud": 3000
     },
     "Caract": {
-      "Velocidad": 6,
+      "Velocidad": 5,
       "Destreza": 3,
-      "Fuerza": 8,
-      "Nivel": 5,
+      "Fuerza": 9,
+      "Nivel": 3,
       "Armadura": 5
     }
   },
   {
     "Datos": {
-      "Tipo": "NightBlade",
-      "Nombre": "Abuelita",
-      "Apodo": "Fafa",
-      "FechaNac": "1784-01-26T00:00:00",
-      "Edad": 238,
+      "Tipo": "Hechicero",
+      "Nombre": "Professor Acari",
+      "Apodo": "Torcuato",
+      "FechaNac": "1722-08-04T00:00:00",
+      "Edad": 299,
       "Salud": 3000
     },
     "Caract": {
       "Velocidad": 8,
-      "Destreza": 4,
-      "Fuerza": 9,
+      "Destreza": 3,
+      "Fuerza": 1,
       "Nivel": 4,
-      "Armadura": 7
-    }
-  },
-  {
-    "Datos": {
-      "Tipo": "Templario",
-      "Nombre": "Queen Abigail",
-      "Apodo": "Narigon",
-      "FechaNac": "1858-03-02T00:00:00",
-      "Edad": 164,
-      "Salud": 3000
-    },
-    "Caract": {
-      "Velocidad": 3,
-      "Destreza": 4,
-      "Fuerza": 5,
-      "Nivel": 4,
-      "Armadura": 8
+      "Armadura": 3
     }
   },
   {
     "Datos": {
       "Tipo": "Necromancer",
       "Nombre": "Addison",
-      "Apodo": "Torcuato",
-      "FechaNac": "1725-11-25T00:00:00",
-      "Edad": 296,
+      "Apodo": "Gervasio",
+      "FechaNac": "1784-08-31T00:00:00",
+      "Edad": 237,
       "Salud": 3000
     },
     "Caract": {
       "Velocidad": 9,
-      "Destreza": 2,
+      "Destreza": 1,
+      "Fuerza": 3,
+      "Nivel": 7,
+      "Armadura": 4
+    }
+  },
+  {
+    "Datos": {
+      "Tipo": "Hechicero",
+      "Nombre": "Ada",
+      "Apodo": "Paton",
+      "FechaNac": "1875-09-29T00:00:00",
+      "Edad": 146,
+      "Salud": 3000
+    },
+    "Caract": {
+      "Velocidad": 8,
+      "Destreza": 4,
+      "Fuerza": 6,
+      "Nivel": 6,
+      "Armadura": 2
+    }
+  },
+  {
+    "Datos": {
+      "Tipo": "Hechicero",
+      "Nombre": "9-Eye",
+      "Apodo": "Retruco",
+      "FechaNac": "1920-03-30T00:00:00",
+      "Edad": 102,
+      "Salud": 3000
+    },
+    "Caract": {
+      "Velocidad": 9,
+      "Destreza": 3,
       "Fuerza": 1,
-      "Nivel": 8,
-      "Armadura": 3
+      "Nivel": 6,
+      "Armadura": 8
+    }
+  },
+  {
+    "Datos": {
+      "Tipo": "Guarda Bosques",
+      "Nombre": "Agent E",
+      "Apodo": "Torcuato",
+      "FechaNac": "2000-07-12T00:00:00",
+      "Edad": 22,
+      "Salud": 3000
+    },
+    "Caract": {
+      "Velocidad": 7,
+      "Destreza": 3,
+      "Fuerza": 2,
+      "Nivel": 4,
+      "Armadura": 8
+    }
+  },
+  {
+    "Datos": {
+      "Tipo": "Guarda Bosques",
+      "Nombre": "Adelbert",
+      "Apodo": "Narigon",
+      "FechaNac": "1959-10-28T00:00:00",
+      "Edad": 62,
+      "Salud": 3000
+    },
+    "Caract": {
+      "Velocidad": 6,
+      "Destreza": 4,
+      "Fuerza": 6,
+      "Nivel": 7,
+      "Armadura": 4
+    }
+  },
+  {
+    "Datos": {
+      "Tipo": "Hechicero",
+      "Nombre": "\u0027Olu Mel",
+      "Apodo": "Gervasio",
+      "FechaNac": "1956-06-05T00:00:00",
+      "Edad": 66,
+      "Salud": 3000
+    },
+    "Caract": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 6,
+      "Nivel": 5,
+      "Armadura": 8
     }
   }
 ]
